@@ -2,8 +2,6 @@ import loadJson from '../components/load-json/'
 import { Climitizer } from './modules/climitizer'
 
 
-// 2018/08/deaths_in_custody
-
 var app = {
 
 	dataload: (key) => {

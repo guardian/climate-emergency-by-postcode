@@ -52,7 +52,7 @@ export class Climitizer {
 
         this.ractive.observe('user_input', ( input ) => {
 
-            this.database.results = false
+            
 
             if (input && input.length > 2) {
 
@@ -183,7 +183,7 @@ export class Climitizer {
 
         this.database.cluster = climate.climate.find( (item) => item.cluster_id === id)
 
-        console.log(this.database.cluster)
+        console.log(this.database)
 
         self.ractive.set(self.database)
 
