@@ -42,15 +42,15 @@
 
 		    <h2>{{this.cluster}}</h2>
 
-		    <strong>Temperature: </strong>{{this.temperature}}<br/>
+		    {{#if this.temperature}}<strong>Temperature: </strong>{{{this.temperature}}}<br/>{{/if}}
 
-		    <strong>Rainfall and drought: </strong>{{this.rainfall_and_drought}}<br/>
+		    {{#if this.rainfall_and_drought}}<strong>Rainfall and drought: </strong>{{{this.rainfall_and_drought}}}<br/>{{/if}}
 
-		    <strong>Marine: </strong>{{this.marine}}<br/>
+		    {{#if this.marine}}<strong>Marine: </strong>{{{this.marine}}}<br/>{{/if}}
 
-		    <strong>Cyclones: </strong>{{this.cyclones}}<br/>
+		    {{#if this.cyclones}}<strong>Cyclones: </strong>{{{this.cyclones}}}<br/>{{/if}}
 
-		    <strong>Fire: </strong>{{this.fire}}
+		    {{#if this.fire}}<strong>Fire: </strong>{{{this.fire}}}{{/if}}
 
 		    </div>
 

@@ -95,7 +95,7 @@ export class Climitizer {
                     self.database.list = false
                     self.database.results = true
                     
-                    self.render(cluster_id)
+                    self.render(cluster_id, lat, lng)
 
                 }
 
@@ -112,7 +112,7 @@ export class Climitizer {
             self.database.list = false
             self.database.results = true
             
-            self.render(cluster_id)
+            self.render(cluster_id, lat, lng)
 
         })
 
@@ -138,12 +138,12 @@ export class Climitizer {
 
         var marginMap = {top: 0, right: 0, bottom: 0, left:0}
 
-        var projection = d3.geoMercator()
+        this.projection = d3.geoMercator()
                         .center([longitude, latitude])
                         .scale(widthMap * 1.15)
                         .translate([widthMap / 2, heightMap / 2])
 
-        var pathMap = d3.geoPath().projection(projection);
+        var pathMap = d3.geoPath().projection(self.projection);
 
         var svgMap = d3.select("#map").append("svg")
                     .attr("width", widthMap)
@@ -159,8 +159,18 @@ export class Climitizer {
             .attr("d", pathMap)
             .style("stroke-width","1")
             .style("stroke","darkgrey")
+            .style("fill","lightgrey")
             .style("opacity", 1)
-            .on("click", function (d) { self.render(d.properties.code) });
+            .on("click", function (d) { 
+                self.render(d.properties.code) 
+            });
+
+            svgMap.append("circle")
+                .attr("cx", 0)
+                .attr("cy", 0)
+                .attr("r", 0)
+                .style("opacity", 0) 
+        
         
         //topojson.feature(geo,geo.objects.NRM_sub_clusters))
 
@@ -175,7 +185,7 @@ export class Climitizer {
 
     }
 
-    render(id) {
+    render(id, lat=null, lng=null) {
 
         var self = this
 
@@ -183,7 +193,29 @@ export class Climitizer {
 
         this.database.cluster = climate.climate.find( (item) => item.cluster_id === id)
 
-        console.log(this.database)
+        d3.selectAll('.sub_clusters').style("fill", function(d){
+            return (d.properties.code === id) ? 'red' : 'lightgrey';
+        });
+
+        if (lat!=null && lng != null) {
+
+            d3.selectAll("circle")
+                .attr("cx", function(d) {
+                    return self.projection([lng, lat])[0];
+                })
+                .attr("cy", function(d) {
+                    return self.projection([lng, lat])[1];
+                })
+                .attr("r", 20)
+                .style("fill", "rgb(217,91,67)")    
+                .style("opacity", 0.85) 
+
+        } else {
+
+            d3.selectAll("circle").style("opacity",0) 
+
+        }
+
 
         self.ractive.set(self.database)
 

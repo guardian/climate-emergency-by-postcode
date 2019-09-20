@@ -95,12 +95,13 @@
     }
 
     .sub_clusters {
-        fill:green;
+        fill:lightgrey;
         fill-opacity: 1;
     }
 
     path:hover {
-        fill-opacity: 0.7;
+        stroke-width: 2px;
+        stroke: darkgrey;
     }
 
     .cluster_box {
@@ -114,7 +115,5 @@
             color: green;
         }
     }
-
-
 
 }
