@@ -4,16 +4,16 @@ import ractiveEventsHover from 'ractive-events-hover'
 import ractiveFade from 'ractive-transitions-fade'
 import template from '../../templates/template.html'
 import geo from '../data/NRM_sub_clusters.json'
-import climate from '../data/climate.json'
-import { $, $$, wait, getDimensions } from "../modules/util"
 import * as d3 from 'd3'
 import * as topojson from "topojson"
 
 export class Climitizer {
 
-	constructor(postcodes) {
+	constructor(postcodes, climate) {
 
         this.database = {}
+
+        this.climate = climate
 
         postcodes.forEach(function(value, index) {
 
@@ -32,11 +32,10 @@ export class Climitizer {
         this.database.isApp = (window.location.origin === "file://" || window.location.origin === null) ? true : false ;
 
         this.ractivate()
+
 	}
 
     ractivate() {
-
-        console.log("Load ractive")
 
         var self = this
 
@@ -51,8 +50,6 @@ export class Climitizer {
         })
 
         this.ractive.observe('user_input', ( input ) => {
-
-            
 
             if (input && input.length > 2) {
 
@@ -191,7 +188,7 @@ export class Climitizer {
 
         self.database.results = true
 
-        this.database.cluster = climate.climate.find( (item) => item.cluster_id === id)
+        this.database.cluster = this.climate.find( (item) => item.cluster_id === id)
 
         d3.selectAll('.sub_clusters').style("fill", function(d){
             return (d.properties.code === id) ? 'red' : 'lightgrey';
@@ -218,7 +215,6 @@ export class Climitizer {
 
         }
 
-
         self.ractive.set(self.database)
 
     }
@@ -242,6 +238,5 @@ export class Climitizer {
         });
 
     }
-
 
 }

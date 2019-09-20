@@ -91,7 +91,15 @@
     }
 
     #map {
-        width: 100%;
+
+        @include mq($until: tablet) {
+            width: 100%;
+        }       
+
+        @include mq($from: tablet) {
+           width: calc(100% - 300px);
+           float: left;
+       }
     }
 
     .sub_clusters {
@@ -105,11 +113,20 @@
     }
 
     .cluster_box {
-        width: 100%;
+
         box-sizing: border-box;
         padding: 20px;
         font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif; 
         font-size: 12px;
+
+        @include mq($until: tablet) {
+            width: 100%;
+        }       
+
+        @include mq($from: tablet) {
+           width: 300px;
+           float: right;
+       }
 
         h2 {
             color: darkred;
