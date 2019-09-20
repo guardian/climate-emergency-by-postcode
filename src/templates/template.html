@@ -1,37 +1,41 @@
 <div class="searchbox-container">
 
+    <div class="main-col">
 
+        <div id="searchbox">
 
-    <div id="searchbox" class="content__main-column">
+            <div class="{{#if isApp}}app-holder isApp{{else}}inputbox-holder{{/if}}">
 
-        <div class="{{#if isApp}}app-holder isApp{{else}}inputbox-holder{{/if}}">
+                <form autocomplete="off">
 
-            <form autocomplete="off">
+                    <input on-keydown='keydown' class="frontier-sr-only" id="inputbox" placeholder="Enter a postcode" size="90" type="text" value="{{user_input}}">
 
-                <input on-keydown='keydown' class="frontier-sr-only" id="inputbox" placeholder="Enter a postcode" size="90" type="text" value="{{user_input}}">
+                </form>
 
-            </form>
-
-            <div id="results">
-            	
                 <div id="results">
                 	
-                	{{#if list}}
-					<ul>
+                    <div id="results">
+                    	
+                    	{{#if list}}
+    					<ul>
 
-						{{#each postcodeShortlist}}
+    						{{#each postcodeShortlist}}
 
-						<li on-tap="['postcode', latitude, longitude, place_name, cluster_id]">{{meta}}</li>
+    						<li on-tap="['postcode', latitude, longitude, place_name, cluster_id]">{{meta}}</li>
 
-						{{/each}}
+    						{{/each}}
 
-					</ul>
-                	{{/if}}
+    					</ul>
+                    	{{/if}}
+
+                    </div>
 
                 </div>
 
             </div>
+            
         </div>
+
     </div>
 
     <div id="map"></div>
