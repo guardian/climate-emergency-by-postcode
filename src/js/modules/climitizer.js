@@ -167,9 +167,6 @@ export class Climitizer {
                 .attr("cy", 0)
                 .attr("r", 0)
                 .style("opacity", 0) 
-        
-        
-        //topojson.feature(geo,geo.objects.NRM_sub_clusters))
 
 
     }
