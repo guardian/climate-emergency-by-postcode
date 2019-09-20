@@ -1,19 +1,20 @@
 import Ractive from 'ractive'
 import ractiveTap from 'ractive-events-tap'
-import ractiveEventsHover from 'ractive-events-hover'
-import ractiveFade from 'ractive-transitions-fade'
+//import ractiveEventsHover from 'ractive-events-hover'
+//import ractiveFade from 'ractive-transitions-fade'
 import template from '../../templates/template.html'
 import geo from '../data/NRM_sub_clusters.json'
+import climate from '../data/climate.json'
 import * as d3 from 'd3'
 import * as topojson from "topojson"
 
 export class Climitizer {
 
-	constructor(postcodes, climate) {
+	constructor(postcodes) {
 
         this.database = {}
 
-        this.climate = climate
+        this.climate = climate.climate
 
         postcodes.forEach(function(value, index) {
 
@@ -41,8 +42,7 @@ export class Climitizer {
 
         this.ractive = new Ractive({
             events: { 
-                tap: ractiveTap,
-                hover: ractiveEventsHover
+                tap: ractiveTap
             },
             el: '#app',
             data: self.database,
