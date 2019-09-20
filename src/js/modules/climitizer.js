@@ -157,7 +157,6 @@ export class Climitizer {
             .style("stroke-width","1")
             .style("stroke","darkgrey")
             .style("fill","lightgrey")
-            .style("opacity", 1)
             .on("click", function (d) { 
                 self.render(d.properties.code) 
             });

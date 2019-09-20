@@ -130,6 +130,8 @@ p {
     
 }
 
+
+
 .searchbox-container {
 
     margin-top: 20px;
@@ -225,7 +227,7 @@ p {
         cursor: pointer;
     }
 
-
+}
 
 
     #map {
@@ -242,9 +244,9 @@ p {
        }
     }
 
-    .sub_clusters {
-        fill:lightgrey;
-        fill-opacity: 1;
+
+    .sub_clusters:hover {
+        opacity:0.7;
     }
 
     path:hover {
@@ -283,5 +285,3 @@ p {
            color:#fc8d59;
         }
     }
-
-}
