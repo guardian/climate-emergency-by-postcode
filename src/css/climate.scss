@@ -90,6 +90,9 @@
         cursor: pointer;
     }
 
+
+
+
     #map {
 
         @include mq($until: tablet) {
@@ -130,6 +133,17 @@
 
         h2 {
             color: darkred;
+        }
+        .very-high {
+            color: #c70000;
+        }
+
+        .high-confidence {
+            color:#d7301f;
+        }
+
+        .medium {
+           color:#fc8d59;
         }
     }
 
