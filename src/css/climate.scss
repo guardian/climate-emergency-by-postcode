@@ -90,6 +90,9 @@
         cursor: pointer;
     }
 
+
+
+
     #map {
         width: 100%;
     }
@@ -113,6 +116,17 @@
 
         h2 {
             color: darkred;
+        }
+        .very-high {
+            color: #c70000;
+        }
+
+        .high-confidence {
+            color:#d7301f;
+        }
+
+        .medium {
+           color:#fc8d59;
         }
     }
 
