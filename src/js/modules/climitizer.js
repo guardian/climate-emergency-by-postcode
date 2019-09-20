@@ -206,9 +206,11 @@ export class Climitizer {
                 .attr("cy", function(d) {
                     return self.projection([lng, lat])[1];
                 })
-                .attr("r", 20)
-                .style("fill", "rgb(217,91,67)")    
-                .style("opacity", 0.85) 
+                .attr("r", 5)
+                .style("stroke", "black")
+                .style("stroke-width", "2px")
+                .style("fill", "none")    
+                .style("opacity", 1) 
 
         } else {
 
