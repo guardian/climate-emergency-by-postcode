@@ -31,14 +31,6 @@
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 
-[data-partyname="coal"] .spinner > div {
-  background-color: #005689;
-}
-
-[data-partyname="alp"] .spinner > div {
-  background-color: #b51800;
-}
-
 .spinner .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
