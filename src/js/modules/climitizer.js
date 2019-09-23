@@ -65,8 +65,6 @@ export class Climitizer {
 
                 });
 
-                console.log(self.database.postcodeShortlist.length)
-
             } else {
 
                self.database.list = false
@@ -76,7 +74,6 @@ export class Climitizer {
             self.ractive.set(self.database)
 
         });
-        //2880 12
 
         this.ractive.on( 'keydown', function ( event ) {
 
