@@ -1,6 +1,11 @@
 @import "mq";
 
-
+.interactive-wrapper {
+background: #FFF;
+border-top: 0.0625rem solid #dcdcdc;
+border-bottom: 0.0625rem solid #dcdcdc;
+padding-top: 20px;
+}
 
     .main-col {
     max-width: 38.75rem;
