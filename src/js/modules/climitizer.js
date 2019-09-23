@@ -57,7 +57,9 @@ export class Climitizer {
 
                 self.database.postcodeShortlist = self.database.postcodes.filter(function(item) {
 
-                    if (item.meta.includes(input)) {
+                    var results = item.meta.toLowerCase()
+
+                    if (results.includes(input.toLowerCase())) {
 
                         return item
 
