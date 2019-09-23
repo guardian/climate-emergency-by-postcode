@@ -132,13 +132,14 @@
 
 
 
-
-
 .searchbox-container {
 
-    margin-top: 20px;
+    padding-top: 20px;
     width: 100%;
     display: inline-block;
+    background: #FFF;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
 
     #searchbox {
         
@@ -220,6 +221,11 @@
         border-bottom: 1px solid black;
         font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif; 
         font-size: 14px;
+    }
+
+    #results li:before {
+        content: none;
+        background: none;
     }
 
     #results li:hover {
