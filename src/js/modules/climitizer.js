@@ -1,4 +1,4 @@
-import Ractive from 'ractive'
+import  Ractive  from 'ractive'
 import ractiveTap from 'ractive-events-tap'
 //import ractiveEventsHover from 'ractive-events-hover'
 //import ractiveFade from 'ractive-transitions-fade'
