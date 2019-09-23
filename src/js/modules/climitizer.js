@@ -55,17 +55,17 @@ export class Climitizer {
 
                self.database.list = true
 
-                var reg = new RegExp(input,'gi');
-
                 self.database.postcodeShortlist = self.database.postcodes.filter(function(item) {
 
-                    if (reg.test(item.meta)) {
+                    if (item.meta.includes(input)) {
 
                         return item
 
                     }
 
                 });
+
+                console.log(self.database.postcodeShortlist.length)
 
             } else {
 
@@ -76,6 +76,7 @@ export class Climitizer {
             self.ractive.set(self.database)
 
         });
+        //2880 12
 
         this.ractive.on( 'keydown', function ( event ) {
 
