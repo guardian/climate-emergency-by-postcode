@@ -1,22 +1,22 @@
 import Ractive from 'ractive'
-// import ractiveTap from 'ractive-events-tap'
+import ractiveTap from 'ractive-events-tap'
 //import ractiveEventsHover from 'ractive-events-hover'
 //import ractiveFade from 'ractive-transitions-fade'
 import template from '../../templates/template.html'
-// import geo from '../data/NRM_sub_clusters.json'
+import geo from '../data/NRM_sub_clusters.json'
 import climate from '../data/climate.json'
 import * as d3 from 'd3'
 import * as topojson from "topojson"
 
 export class Climitizer {
 
-	constructor(postcodes,geo) {
+	constructor(postcodes) {
 
         this.database = {}
 
         this.climate = climate.climate
 
-        postcodes.sheets.postcodes.forEach(function(value, index) {
+        postcodes.forEach(function(value, index) {
 
             value.latitude = +value.latitude
             value.longitude = +value.longitude
@@ -25,8 +25,6 @@ export class Climitizer {
         });
 
         this.database.postcodes = postcodes
-
-        this.geo = geo
 
         this.database.results = false
 
