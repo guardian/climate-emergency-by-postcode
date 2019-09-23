@@ -227,6 +227,11 @@ padding-top: 20px;
         font-size: 14px;
     }
 
+    #results li:before {
+        content: none;
+        background-color: none;
+    }
+
     #results li:hover {
         color: white;
         background-color: red;
