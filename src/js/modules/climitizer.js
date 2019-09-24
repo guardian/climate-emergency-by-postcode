@@ -32,6 +32,8 @@ export class Climitizer {
 
         this.database.isApp = (window.location.origin === "file://" || window.location.origin === null) ? true : false ;
 
+        this.clickible = true
+
         this.ractivate()
 
 	}
@@ -105,11 +107,16 @@ export class Climitizer {
 
         this.ractive.on('postcode', (context, lat, lng, place_name, cluster_id) => {
 
+            self.clickible = false
             self.database.user_input = ""
             self.database.list = false
             self.database.results = true
             
             self.render(cluster_id, lat, lng)
+
+            setTimeout(function(){ 
+                self.clickible = true
+            }, 500);
 
         })
 
@@ -158,7 +165,9 @@ export class Climitizer {
             .style("stroke","darkgrey")
             .style("fill","lightgrey")
             .on("click", function (d) { 
-                self.render(d.properties.code) 
+                if (self.clickible) {
+                    self.render(d.properties.code) 
+                }
             });
 
             svgMap.append("circle")

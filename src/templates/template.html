@@ -13,22 +13,18 @@
                 </form>
 
                 <div id="results">
-                	
-                    <div id="results">
                     	
-                    	{{#if list}}
-    					<ul>
+                	{{#if list}}
+					<ul>
 
-    						{{#each postcodeShortlist}}
+						{{#each postcodeShortlist}}
 
-    						<li on-tap="['postcode', latitude, longitude, place_name, cluster_id]">{{meta}}</li>
+						<li on-tap="['postcode', latitude, longitude, place_name, cluster_id]">{{meta}}</li>
 
-    						{{/each}}
+						{{/each}}
 
-    					</ul>
-                    	{{/if}}
-
-                    </div>
+					</ul>
+                	{{/if}}
 
                 </div>
 
